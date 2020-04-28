@@ -6,10 +6,11 @@ const getPic = require('./utils/getpic')
 
 const app = express()
 
-const viewsDirectoryPath = path.join(__dirname, './client/views')
+const viewsDirectoryPath = path.join(__dirname, '../client/views')
 
-app.use(express.static('./client'))
-app.use(express.static('./client/views'))
+
+app.use(express.static(viewsDirectoryPath))
+
 app.get('/js', (req, res) => {
   res.sendFile('./client/js/app.js')
 })
@@ -18,7 +19,9 @@ app.get('/scss', (req, res) => {
   res.sendFile('./client/scss/styles.scss')
 })
 
-
+app.get('/', (req, res) => {
+  res.send('Hello!')
+})
 
 let projectData = {}
 
