@@ -7,12 +7,13 @@ const getPic = require('./utils/getpic')
 const app = express()
 
 const viewsDirectoryPath = path.join(__dirname, '../client/views')
+const jsDirectoryPath = path.join(__dirname, '../client/js/app.js' )
 
-
+app.use(express.static(jsDirectoryPath))
 app.use(express.static(viewsDirectoryPath))
 
-app.get('/js', (req, res) => {
-  res.sendFile('./client/js/app.js')
+app.get('/js/app.js', (req, res) => {
+  res.sendFile(jsDirectoryPath)
 })
 
 app.get('/scss', (req, res) => {
