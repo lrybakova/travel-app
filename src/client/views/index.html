@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+ <link rel="stylesheet" href="./scss/styles.css">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  
+</head>
+
+<body>
+  <div class="main-content">
+  <header>
+    <h1>Travel app</h1>
+  </header>
+   
+  <div class="app-wrapper">
+  <div class="planner">
+  
+    <form>
+      <div class="destination">
+        <p> My trip to:</p>
+      
+    <input 
+    id='city' 
+    placeholder="Paris, France...">
+  </div>
+  <div class="date">
+    <p>Departing:</p>
+    <input 
+    id='date' 
+    placeholder="YYYY-MM-DD">
+  </div>
+    <button type = "submit" onclick="return submitter(event)">Save</button>
+  </form>
+</div>
+   <div id="pic"><img src="./img/paris.jpg" alt=""></div>
+  <div class="results">
+  <p id="message-1"></p>
+  <p id="message-2"></p>
+  <div id="remove"></div>
+  <div id="message-3"></div>
+  <div id="message-4"></div>
+  <div id="message-5"></div>
+  <div id="message-6"></div>
+  
+</div>
+  
+</div>
+</div>
+<footer>Created by L Rybakova</footer>
+
+
+<script src="../js/app.js"></script>
+</body>
+</html>

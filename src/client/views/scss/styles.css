@@ -1,0 +1,287 @@
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  color: #ebebeb;
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  flex-direction: column;
+
+  background: linear-gradient(
+      to bottom,
+      rgba(74, 178, 209, 0.0),
+      rgba(65, 180, 247, 0.0) 0%,
+      rgba(72, 163, 238, 0.0)
+    ),
+    url("./background-big-cut.jpg")
+      center no-repeat; 
+    /*background:  linear-gradient( to bottom, rgba(74, 178, 209, 0.0), rgba(65, 180, 247, 0) 0%, rgba(72, 163, 238, 0) ), url("https://pixabay.com/get/57e1d14a4b50aa14f6d1867dda29317c113cdfe2574c704c7d2872dc9248cd59_1920.jpg") center no-repeat;*/
+  background-position-x: 0%, center;
+  background-position-y: 0%, center;
+  background-repeat: repeat, no-repeat;
+  background-size: auto, auto;
+  background-origin: padding-box, padding-box;
+  background-clip: border-box, border-box;
+  background-position-x: 0%, center;
+  background-position-y: 0%, center;
+  background-size: auto auto;
+  background-origin: padding-box, padding-box;
+  background-clip: border-box, border-box;
+  background-size: cover;
+}
+
+.app-wrapper {
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  background: #1e1e1e99;
+}
+
+.main-content {
+  height: 100%;
+  flex-grow: 1;
+}
+
+#pic {
+  display: flex;
+}
+img {
+  width: -webkit-fill-available;
+}
+footer {
+  border-top: 1px solid #cacaca;
+  padding: 10px 0;
+  margin-top: 10px;
+  color: #cacaca;
+  font-size: 10px;
+}
+
+header {
+  margin-top: 16px;
+  margin-bottom: 18px;
+  color: #282e33;
+}
+
+h1 {
+
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+
+.planner {
+  
+  margin-bottom: 15px;
+}
+
+.date {
+  margin-bottom: 15px;
+}
+.destination p {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#city { 
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* .date { 
+  margin-top: 10px;
+} */
+input {
+  padding: 3px 5px;
+}
+
+#date { 
+  width: 80%;
+  margin: 0px auto;
+  display: block;
+}
+
+button {
+  display: flex;
+  background: rgb(77, 79, 97) !important;
+  color: #f8f8f5;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+  padding: 5px 20px;
+  
+}
+
+button:hover {
+  filter: brightness(115%);
+}
+
+.top {
+  font-weight: bold;
+  font-size: 18px;
+}
+.bottom {
+  /*display: flex;*/
+  flex-direction: column;
+  margin: 10px auto;
+  flex-basis: 0px;
+}
+.results img {
+  max-width: -webkit-fill-available;
+}
+#message-1, 
+#message-2 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+#message-2,
+#message-3,
+#message-4,
+#message-5,
+#message-6 {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+#message-5,
+#message-6 {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+ A, a {
+ text-decoration: none;
+ font-size: 13px;
+ border: 1px solid #333;
+ border-radius: 5px;
+ background-color: #cacaca;
+  padding: 2px 5px;
+  color: black;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+link {
+  color: black; 
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    background-size: cover;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  .app-wrapper {
+
+    display: grid;
+    grid-auto-rows: max-content;
+    min-height: 350px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .planner {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    place-content: stretch;
+    margin-left: 15px;
+    font-size: 25px;
+    min-height: min-content;
+  }
+
+  input {
+    font-size: large;
+  }
+  button {
+    font-size: x-large;
+  }
+  .results {
+    display: grid;
+    text-align: start;
+    margin: 0 35px 0 35px;
+
+  }
+  
+ 
+
+  #pic {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+
+  }
+
+  img {
+    display: flex;
+    width: 100%;
+  }
+  #message-1 {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 10px;
+  }
+  #message-2 {
+    grid-row: 2;
+    grid-column: 1;
+    margin: 10px;
+  }
+
+  #remove { 
+    grid-row: 3;
+    grid-column: 1;
+    margin: 10px;
+  }
+
+  #message-3,
+  #message-4 {
+    margin: 10px;
+    grid-column: 2;
+  }
+
+
+
+  #message-5,
+  #message-6 {
+    margin: 10px;
+    grid-column: 2;
+  }
+
+
+}
+
+
+@media screen and (min-width: 1200px) {
+  body {
+    background-size: cover;
+    max-width: 800px
+  }
+  .app-wrapper {
+    
+    justify-content: center;
+  }
+  #pic {
+    width: 95%;
+    grid-column: 2;
+  }
+  .results {
+    grid-column: 2;
+  }
+
+  #date,
+  #city {
+    width: 90%;
+  }
+
+  
+
+
+} 
