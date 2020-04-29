@@ -1,4 +1,4 @@
-
+// implementing modules
 const path = require('path')
 const express = require('express')
 var cors = require('cors')
@@ -6,37 +6,24 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const getPic = require('./utils/getpic')
 
+// starting express 
 const app = express()
-const imgPath = path.join(__dirname, '../../paris.jpg')
-console.log(imgPath)
-// const viewsDirectoryPath = path.join(__dirname, '../client/views')
-// const jsDirectoryPath = path.join(__dirname, '../client/js/app.js' )
-
-// app.use(express.static(jsDirectoryPath))
-// app.use(express.static(viewsDirectoryPath))
-
-// app.get('/js/app.js', (req, res) => {
-//   res.sendFile(jsDirectoryPath)
-// })
-
-// app.get('/scss', (req, res) => {
-//   res.sendFile('./client/scss/styles.scss')
-// })
-
 app.use(express.static('dist'))
 
 app.use(cors())
 app.options('*', cors())
 
-app.get('/', (req, res) => {
-  res.send('Hello!')
-})
+//setting up an ending point for all routes 
 
-app.get('/img/paris.jpg', (req, res) => {
-  res.sendFile(path.resolve('dist', "paris.jpg"))
-})
 let projectData = {}
 
+//Adding member: value paris
+let mockData = {
+  dateTrip: '2020-05-14',
+  city: 'Paris'
+}
+
+// GET routes
 
 app.get('/trip', (req, res) => {
   console.log(req.query)
@@ -76,7 +63,6 @@ app.get('/trip', (req, res) => {
   }
 })
 
-// Get route 
 
 app.get('/all', getAll);
 function getAll(req, res) {

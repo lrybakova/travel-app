@@ -35,7 +35,7 @@
     <button id="generate" type = "submit">Save</button>
   </form>
 </div>
-   <div id="pic"><img src="./img/paris.jpg" alt=""></div>
+   <div id="pic"><img src="./paris.jpg" alt=""></div>
   <div class="results">
   <p id="message-1"></p>
   <p id="message-2"></p>
@@ -50,5 +50,15 @@
 </div>
 </div>
 <footer>Created by L Rybakova</footer>
+
+<script>
+// Check that service workers are supported
+if ('serviceWorker' in navigator) {
+// Use the window load event to keep the page load performant
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('/service-worker.js');
+});
+}
+</script>
 </body>
 </html>

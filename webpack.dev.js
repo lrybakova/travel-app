@@ -2,8 +2,20 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
+
 module.exports = {
+
   entry: './src/client/index.js',
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+    writeToDisk: true,
+    headers: {
+    'Access-Control-Allow-Origin': '*'
+    }
+  },
+  mode: 'development',
   output: {
     libraryTarget: 'var',
     library: 'Client'

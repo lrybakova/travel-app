@@ -1,8 +1,8 @@
 import {submitter} from './js/app'
 import {updater} from './js/updater'
-import './views/scss/styles.scss'
+import './styles/styles.scss'
 
-import './views/scss/background-big-cut.jpg'
+import './views/img/background.jpg'
 import './views/img/paris.jpg'
 
 // Event listener to add function to existing HTML DOM element

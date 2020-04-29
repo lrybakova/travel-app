@@ -1,9 +1,11 @@
 export function updater (response) {
+
+  //receivung data from function submitter after collecting responses from all the APIs
   response.json().then((data) => {
   if(data.error) {
-    messageOne.textContent = data.error
+    messageOne.textContent = data.error //handling error nicely
   } else { 
-    
+    //creating new content at the page
     const messageOne = document.querySelector('#message-1')
     const messageTwo = document.querySelector('#message-2')
     const messageThree = document.querySelector('#message-3')
