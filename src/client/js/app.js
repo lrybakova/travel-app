@@ -1,4 +1,4 @@
-function submitter(e) {
+export function submitter(e) {
 
   e.preventDefault()
   let date = document.querySelector('#date')
@@ -43,41 +43,13 @@ function submitter(e) {
           console.log(data.error)
         } else {
         picHolder.innerHTML = ''
-        updater()
+        fetch('http://localhost:3000/all').then((response) => {
+          Client.updater(response)
+        })
         }
       })
-      
   })
-  }
-
 }
 
- const updater = async (data) => {
-    const request = await fetch('http://localhost:3000/all')
-    try {
-      const allData = await request.json()
-    const messageOne = document.querySelector('#message-1')
-    const messageTwo = document.querySelector('#message-2')
-    const messageThree = document.querySelector('#message-3')
-    const messageFour = document.querySelector('#message-4')
-    const messageFive = document.querySelector('#message-5')
-    const messageSix = document.querySelector('#message-6')
 
-    const picHolder = document.querySelector('#pic')
-    const removeBtn = document.querySelector('#remove')
-    const planner = document.querySelector('.planner')
-    planner.innerHTML = ''
-    picHolder.innerHTML = '<img src="' + allData.img +'">'
-    messageOne.textContent = 'My trip to: ' + allData.city + ', '+ allData.country 
-    messageTwo.textContent = 'Departure: ' + allData.dateTrip 
-    messageThree.textContent = allData.city + ', '+ allData.country + ' is ' + allData.delta + ' days away'
-    messageFour.textContent = 'Expected weather there: '
-    messageFive.textContent = allData.weather
-    messageSix.textContent = 'Air temperature: ' + allData.temp + ' degrees.'
-    removeBtn.innerHTML = '<A HREF="javascript:history.go(0)">remove</A>'
-    
-  } catch (error) {
-    console.log('Error', error)
-  }
-  }
-  
+}

@@ -1,29 +1,40 @@
+
 const path = require('path')
 const express = require('express')
+var cors = require('cors')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const getPic = require('./utils/getpic')
 
 const app = express()
+const imgPath = path.join(__dirname, '../../paris.jpg')
+console.log(imgPath)
+// const viewsDirectoryPath = path.join(__dirname, '../client/views')
+// const jsDirectoryPath = path.join(__dirname, '../client/js/app.js' )
 
-const viewsDirectoryPath = path.join(__dirname, '../client/views')
-const jsDirectoryPath = path.join(__dirname, '../client/js/app.js' )
+// app.use(express.static(jsDirectoryPath))
+// app.use(express.static(viewsDirectoryPath))
 
-app.use(express.static(jsDirectoryPath))
-app.use(express.static(viewsDirectoryPath))
+// app.get('/js/app.js', (req, res) => {
+//   res.sendFile(jsDirectoryPath)
+// })
 
-app.get('/js/app.js', (req, res) => {
-  res.sendFile(jsDirectoryPath)
-})
+// app.get('/scss', (req, res) => {
+//   res.sendFile('./client/scss/styles.scss')
+// })
 
-app.get('/scss', (req, res) => {
-  res.sendFile('./client/scss/styles.scss')
-})
+app.use(express.static('dist'))
+
+app.use(cors())
+app.options('*', cors())
 
 app.get('/', (req, res) => {
   res.send('Hello!')
 })
 
+app.get('/img/paris.jpg', (req, res) => {
+  res.sendFile(path.resolve('dist', "paris.jpg"))
+})
 let projectData = {}
 
 
@@ -72,9 +83,4 @@ function getAll(req, res) {
   res.send(projectData);
 }
 
-
-  app.listen(3000, () => {
-    console.log('Server is up on port 3000')
-  })
-
-  module.exports = app
+module.exports = app 
