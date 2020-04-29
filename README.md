@@ -1,46 +1,36 @@
 # travel-app
 
-# Development Environment and Architecture
+This app allows you to check the weather in the city you are going to visit and see a picture of it
 
-* Architecture 
+- If entered city's picture isnt found, then a picture of the ocuntry will be shown 
+- If trip starts today, weather will be shown for today 
+- If trip starts in a period of 2 weeks, then the weather will be shown as a forecast for intended day
+- If the trip starts later than 2 weeks, app will show weather for the most far day available. 
 
-- All files present at the picture are present
-- Webpack file is split in two
-- img folder added into views folder
-- in server folder are two files - app.js and index.js - neccessity for being able to test app.js (isolated function app.listen)
-- App succesfully renders a homepage with simple design and required functionality: user can input date of trip and name of city where he is heading and receive weather there and pic from the city/country of visit. User can remove the trip then abd make a new one if he wants, by clicking remove button 
+# Web APIs 
 
-* Webpack 
+- [GeoNames](http://www.geonames.org): API returns coordinates from the destination city name.
 
-- Webpack config contains 5 scripts - clean (removes dist folder), test, start (runs express server), build-prod and build-dev (with web-dev-server)
+- [Weatherbit](https://www.weatherbit.io): this API was used to get weather forecasts based on coordinates from previous API.
 
-* Testing
-- I have 2 test for express app and one for application 
+- [Pixabay](https://pixabay.com): provides images of the city/country provided.
 
-* Offline capabilities 
-- Project has service workers installed
+# Dependencies
 
-# HTML & CSS 
+- [Express](https://expressjs.com/)
+- [Webpack](https://webpack.js.org/)
+- [Jest](https://jestjs.io/)
+- [SuperTest](https://github.com/visionmedia/supertest)
 
-* Usability 
-- App is fully responsive
-* Styling
-- I believe that it is done in a logical way. All interactive elements (2 buttons) have hover states
-* HTML structure
-- HTML structure is intended with classes and IDs, they make perfect sense at least for me
-* Visual design 
-- Made from scratch
+## Webpack Loaders
 
-# API and JS inegration 
+- [Babel](https://github.com/babel/babel-loader)
+- [CSS](https://webpack.js.org/loaders/css-loader/)
+- [SASS](https://github.com/webpack-contrib/sass-loader)
+- [Style](https://github.com/webpack-contrib/style-loader)
 
-* As an extra option I chose to look for a picture of a country in the case of absence pictures for chosen city. In order to additionally improve user experience I also customized the request to make it only bring photos, not drawings, and to be travel themed. 
+## Webpack Plugins
 
-
-# Documentation 
-
-* README - included and customized with app description and dependencies
-* Comments are present and explain what code does
-* Code is formatted using auto formatter and in accordance to guidelines 
-
-
-
+- [CleanWebpackPlugin](https://github.com/johnagan/clean-webpack-plugin)
+- [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/)
+- [WorkboxPlugin](https://github.com/GoogleChrome/workbox): this plugin was used to add a service worker to the app.
